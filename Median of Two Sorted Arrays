@@ -1,0 +1,32 @@
+Unoptimized Python solution
+
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        na=[]
+        n=len(nums1)
+        m=len(nums2)
+        i=0
+        while(nums1!=[] and nums2!=[]):
+                if nums1[i]<nums2[i]:
+                    na.append(nums1[i])
+                    nums1.pop(i)
+                    print(i)
+                else :
+                    na.append(nums2[i])
+                    nums2.pop(i)
+                    print(i)
+        if nums1 !=[]:
+            for i in range(len(nums1)):
+                na.append(nums1[i])
+        if nums2 !=[]:
+            for i in range(len(nums2)):
+                na.append(nums2[i])
+        if (n+m)%2==0:
+            return float(na[(n+m-1)/2]+na[((n+m-1)//2)+1])/2
+        else:
+            return na[(n+m-1)/2]
