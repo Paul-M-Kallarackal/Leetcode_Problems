@@ -1,0 +1,9 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        id={}
+        for i in range(len(nums)):
+            id[nums[i]]=i
+        for i in range(len(nums)):
+            x=id.get(target-nums[i])
+            if x and x!=i:
+                 return [i,x]
